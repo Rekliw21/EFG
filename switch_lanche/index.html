@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Simulador de Lanche</title>
+</head>
+<body>
+    <h1>Simulador de Lanche</h1>
+    <form id="formulario">
+        <label for="lanche">Lanche:</label>
+        <select id="lanche" name="lanche">
+            <option value="xburger">X-Burger (R$ 10,00)</option>
+            <option value="xsalada">X-Salada (R$ 8,00)</option>
+            <option value="vegetariano">Vegetariano (R$ 7,00)</option>
+        </select>
+        <br>
+
+        <label for="bebida">Bebida:</label>
+        <select id="bebida" name="bebida">
+            <option value="refrigerante">Refrigerante (R$ 2,50)</option>
+            <option value="suco">Suco (R$ 3,00)</option>
+            <option value="agua">Água (R$ 1,50)</option>
+        </select>
+        <br>
+
+        <label for="acompanhamento">Acompanhamento:</label>
+        <select id="acompanhamento" name="acompanhamento">
+            <option value="batatafrita">Batata frita (R$ 2,00)</option>
+            <option value="onionrings">Onion rings (R$ 3,00)</option>
+            <option value="salada">Salada (R$ 1,00)</option>
+        </select>
+        <br>
+
+        <button type="submit">Calcular Pedido</button>
+    </form>
+
+    <div id="resultado"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>

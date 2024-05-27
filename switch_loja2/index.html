@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loja de Joias</title>
+</head>
+<body>
+    <h1>Loja de Joias</h1>
+    <label for="pulseira">Escolha a pulseira:</label>
+    <select id="pulseira">
+        <option value="0">Nenhuma</option>
+        <option value="25">Pulseira de Prata (R$ 25,00)</option>
+        <option value="35">Pulseira de Ouro (R$ 35,00)</option>
+    </select><br><br>
+
+    <label for="brinco">Escolha o brinco:</label>
+    <select id="brinco">
+        <option value="0">Nenhum</option>
+        <option value="20">Brinco de Prata (R$ 20,00)</option>
+        <option value="30">Brinco de Ouro (R$ 30,00)</option>
+    </select><br><br>
+
+    <label for="colar">Escolha o colar:</label>
+    <select id="colar">
+        <option value="0">Nenhum</option>
+        <option value="30">Colar de Prata (R$ 30,00)</option>
+        <option value="40">Colar de Ouro (R$ 40,00)</option>
+    </select><br><br>
+
+    <button onclick="calcularTotal()">Calcular Total</button><br><br>
+
+    <div id="resultado"></div>
+
+    <script>
+        function calcularTotal() {
+            var pulseira = parseInt(document.getElementById('pulseira').value);
+            var brinco = parseInt(document.getElementById('brinco').value);
+            var colar = parseInt(document.getElementById('colar').value);
+            
+            var total = pulseira + brinco + colar;
+            var desconto = 0;
+            
+            // Aplicar desconto se o usuário comprar mais de um item
+            if ((pulseira > 0 && brinco > 0) || (pulseira > 0 && colar > 0) || (brinco > 0 && colar > 0)) {
+                desconto = 5; // 5% de desconto
+            }
+            
+            var totalComDesconto = total - (total * (desconto / 100));
+            
+            switch (total) {
+                case 0:
+                    document.getElementById('resultado').innerHTML = "Por favor, escolha pelo menos um item.";
+                    break;
+                default:
+                    if (desconto > 0) {
+                        document.getElementById('resultado').innerHTML = "Total do pedido: R$ " + total.toFixed(2) + " com desconto de " + desconto + "%. Total com desconto: R$ " + totalComDesconto.toFixed(2);
+                    } else {
+                        document.getElementById('resultado').innerHTML = "Total do pedido: R$ " + total.toFixed(2);
+                    }
+            }
+        }
+    </script>
+</body>
+</html>
